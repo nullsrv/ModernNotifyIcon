@@ -1,7 +1,8 @@
 # Modern Notify Icon
 
 ## Overview
-![](gallery/overview.png)
+
+[![Overview](gallery/overview_lowres.png "Click for hi-res version")](gallery/overview.png)
 
 ## Features
 
