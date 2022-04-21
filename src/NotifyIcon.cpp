@@ -348,6 +348,13 @@ auto NotifyIcon::Dispatch (HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) -
             return 0;
         }
     }
+    else
+    {
+        if (SystemMessage(uMsg, wParam, lParam))
+        {
+            return 0;
+        }
+    }
 
     return DefWindowProcW(hWnd, uMsg, wParam, lParam);
 }
@@ -669,6 +676,17 @@ auto NotifyIcon::CustomMessage (UINT uMsg, WPARAM wParam, LPARAM lParam) -> BOOL
     }
 
     return TRUE;
+}
+
+auto NotifyIcon::SystemMessage (UINT uMsg, WPARAM wParam, LPARAM lParam) -> BOOL
+{
+    TRACE(L"SystemMessage(uMsg=%s, wParam=%lld, lParam=%lld", uMsg, wParam, lParam);
+    if (OnSystemMessage)
+    {
+        return OnSystemMessage(uMsg, wParam, lParam);
+    }
+
+    return FALSE; // we don't want to handle this message
 }
 
 auto NotifyIcon::UpdateIcon (HICON icon) -> HRESULT

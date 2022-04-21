@@ -250,6 +250,7 @@ public:
     std::function<void ()>                     OnTaskbarCreated          = nullptr;
     std::function<void (UINT)>                 OnTimer                   = nullptr;
     std::function<void (UINT, WPARAM, LPARAM)> OnCustomMessage           = nullptr;
+    std::function<bool (UINT, WPARAM, LPARAM)> OnSystemMessage           = nullptr; // use with caution!
 
 private:
     auto Dispatch (HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) -> LRESULT;
@@ -275,6 +276,7 @@ private:
     auto TaskbarCreated    ()                     -> BOOL;
     auto TimerTimeout      (UINT id)              -> BOOL;
     auto CustomMessage     (UINT, WPARAM, LPARAM) -> BOOL;
+    auto SystemMessage     (UINT, WPARAM, LPARAM) -> BOOL;
 
     auto UpdateIcon  (HICON icon)            -> HRESULT;
     auto UpdateMenu  (HMENU menu)            -> HRESULT;
