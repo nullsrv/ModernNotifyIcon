@@ -22,6 +22,7 @@
 [OnTaskbarCreated](#OnTaskbarCreated)</br>
 [OnTimer](#OnTimer)</br>
 [OnCustomMessage](#OnCustomMessage)
+[OnSystemMessage](#OnSystemMessage)
 
 ## OnCreate
 
@@ -242,7 +243,7 @@ When system theme is changed.
 Prototype:</br>
 
 ```cpp
-std::function<void (ThemeInfo)> OnRichPopupClose;
+std::function<void (ThemeInfo)> OnThemeChange;
 ```
 
 Arguments:</br>
@@ -279,7 +280,27 @@ To send custom message use [SendCustomMessage](nf-notifyicon-sendcustommessage.m
 Prototype:</br>
 
 ```cpp
-std::function<void (UINT, WPARAM, LPARAM)> OnRichPopupClose;
+std::function<void (UINT, WPARAM, LPARAM)> OncustomMessage;
+```
+
+Arguments:</br>
+`UINT` - message id</br>
+`WPARAM` - message extra information, depends on message</br>
+`LPARAM` - message extra information, depends on message
+
+## OnSystemMessage
+
+When system message is send.
+If you DON'T handle the message return false.
+
+**Use with caution!**
+
+If you don't handle this callback properly it can make initialization fail.
+
+Prototype:</br>
+
+```cpp
+std::function<bool (UINT, WPARAM, LPARAM)> OnSystemMessage;
 ```
 
 Arguments:</br>

@@ -36,6 +36,7 @@ Represents icon in notification area.
 [NotifyIcon::Init](mni/nf-notifyicon-init.md)</br>Initialize NotifyIcon
 [NotifyIcon::MainLoop](mni/nf-notifyicon-mainloop.md)</br>Handle window messages
 [NotifyIcon::Quit](mni/nf-notifyicon-quit.md)</br>Post Quit to message queue
+[NotifyIcon::Handle](mni/nf-notifyicon-handle.md)</br>Get internal window handle
 [NotifyIcon::Show](mni/nf-notifyicon-show.md)</br>Show icon in Notification Area
 [NotifyIcon::Hide](mni/nf-notifyicon-hide.md)</br>Hide icon from Notification Area
 [NotifyIcon::ShowContextMenu](mni/nf-notifyicon-showcontextmenu.md)</br>Manually show context menu
