@@ -305,7 +305,7 @@ public:
     auto Init     () -> HRESULT;
     auto MainLoop () -> int;
     auto Quit     () -> void;
-    //auto Handle   () -> HWND { return mWindowHandle; } // I don't think we want to expose windows handle
+    auto Handle   () -> HWND { return mWindowHandle; } // Use with caution!
 
     auto Show () -> HRESULT;
     auto Hide () -> HRESULT;
