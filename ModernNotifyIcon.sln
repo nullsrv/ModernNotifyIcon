@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ModernNotifyIcon", "proj\ModernNotifyIcon.vcxproj", "{18D97708-C7EE-43E3-A9F2-D0C11F73ECE5}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Demo", "examples\Demo\Demo.vcxproj", "{A0EE58B0-14B6-4FE2-AED9-AD9B03D19689}"
+	ProjectSection(ProjectDependencies) = postProject
+		{18D97708-C7EE-43E3-A9F2-D0C11F73ECE5} = {18D97708-C7EE-43E3-A9F2-D0C11F73ECE5}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
