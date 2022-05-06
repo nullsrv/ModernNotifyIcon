@@ -1,6 +1,6 @@
 # Modern Notify Icon
 
-## Overview
+## Overview (click on image for hi-res version)
 
 [![Overview](gallery/overview_lowres.png "Click for hi-res version")](gallery/overview.png)
 
@@ -28,8 +28,13 @@ You can use either pre-build static library or build library yourself.
 1. Download or clone this repository
 2. Add additional include directory: ```ModernNotifyIcon/include```
 3. Add additional library directory: ```ModernNotifyIcon/lib/$(Platform)/$(Configuration)```
-4. Add ```ModernNotifyIcon.lib``` to linker input
-5. Include ```mni/NotifyIcon.hpp``` in your source
+4. Depending on your choice:
+    - If you want to use Immersive style:
+        - Add ```ImmersiveNotifyIcon.lib``` to linker input if you want to use immersive style (full build)
+        - Include ```mni/ImmersiveNotifyIcon.hpp``` in your source file
+    - If you want to use Classic style:
+        - Add ```ClassicNotifyIcon.lib``` to linker input if you want to use classic style (minimal build)
+        - Include ```mni/ClassicNotifyIcon.hpp``` in your source file
 
 ## Building
 
@@ -40,7 +45,9 @@ You can use either pre-build static library or build library yourself.
 
 ### To build project
 
-1. Open ```ModernNotifyIcon.sln``` and build project **ModernNotifyIcon**.
+1. Open ```ModernNotifyIcon.sln``` and build projects:
+    - **ImmersiveNotifyIcon**
+    - **ClassicNotifyIcon**
 2. (Optional) Build **Demo** project
 
 On successful build in will output library files in ```ModernNotifyIcon/lib``` directory.</br>
