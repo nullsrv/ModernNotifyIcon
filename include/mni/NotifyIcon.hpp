@@ -86,6 +86,12 @@ constexpr auto MNI_USER_TIMER_ID   = UINT{1000};
 
 namespace mni {
 
+#pragma region "MNI_ERROR_CODE to String"
+
+constexpr auto MniErrorCodeToString (const HRESULT code) -> std::wstring_view;
+
+#pragma endregion
+
 #pragma region "ThemeInfo"
 
 class ThemeInfo final

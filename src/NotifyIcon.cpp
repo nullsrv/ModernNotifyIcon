@@ -149,6 +149,46 @@ namespace {
 }
 
 namespace mni {
+    constexpr auto MniErrorCodeToString (const HRESULT code) -> std::wstring_view
+    {
+        switch (code)
+        {
+        case MNI_SUCCESS:                                 return L"MNI_SUCCESS";
+        
+        case MNI_UNSUPPORTED_VERSION:                     return L"MNI_UNSUPPORTED_VERSION";
+        case MNI_FAILED_TO_ADD_ICON:                      return L"MNI_FAILED_TO_ADD_ICON";
+        case MNI_FAILED_TO_DELETE_ICON:                   return L"MNI_FAILED_TO_DELETE_ICON";
+        case MNI_FAILED_TO_SHOW_ICON:                     return L"MNI_FAILED_TO_SHOW_ICON";
+        case MNI_FAILED_TO_HIDE_ICON:                     return L"MNI_FAILED_TO_HIDE_ICON";
+        case MNI_FAILED_TO_CHANGE_ICON:                   return L"MNI_FAILED_TO_CHANGE_ICON";
+        case MNI_FAILED_TO_CHANGE_TIP:                    return L"MNI_FAILED_TO_CHANGE_TIP";
+        case MNI_FAILED_TO_COPY_TIP:                      return L"MNI_FAILED_TO_COPY_TIP";
+        case MNI_FAILED_TO_COPY_BALLOON_TITLE:            return L"MNI_FAILED_TO_COPY_BALLOON_TITLE";
+        case MNI_FAILED_TO_COPY_BALLOON_TEXT:             return L"MNI_FAILED_TO_COPY_BALLOON_TEXT";
+        case MNI_FAILED_TO_SHOW_BALLOON:                  return L"MNI_FAILED_TO_SHOW_BALLOON";
+        case MNI_FAILED_TO_REMOVE_BALLOON:                return L"MNI_FAILED_TO_REMOVE_BALLOON";
+        case MNI_FAILED_TO_REGISTER_WNDCLASS:             return L"MNI_FAILED_TO_REGISTER_WNDCLASS";
+        case MNI_FAILED_TO_CREATE_WINDOW:                 return L"MNI_FAILED_TO_CREATE_WINDOW";
+        case MNI_INVALID_INSTANCE:                        return L"MNI_INVALID_INSTANCE";
+        case MNI_INVALID_WINDOW_HANDLE:                   return L"MNI_INVALID_WINDOW_HANDLE";
+        case MNI_INVALID_ICON:                            return L"MNI_INVALID_ICON";
+        case MNI_INVALID_MENU:                            return L"MNI_INVALID_MENU";
+        case MNI_ICON_NOT_CREATED:                        return L"MNI_ICON_NOT_CREATED";
+        
+        case MNI_WINDOW_ALREADY_CREATED:                  return L"MNI_WINDOW_ALREADY_CREATED";
+        case MNI_ICON_ALREADY_CREATED:                    return L"MNI_ICON_ALREADY_CREATED";
+        case MNI_ICON_ALREADY_SHOWN:                      return L"MNI_ICON_ALREADY_SHOWN";
+        case MNI_ICON_ALREADY_HIDDEN:                     return L"MNI_ICON_ALREADY_HIDDEN";
+        case MNI_ARGUMENT_ICON_IS_NULL:                   return L"MNI_ARGUMENT_ICON_IS_NULL";
+        case MNI_ARGUMENT_MENU_IS_NULL:                   return L"MNI_ARGUMENT_MENU_IS_NULL";
+        case MNI_ARGUMENT_TIP_IS_NULL:                    return L"MNI_ARGUMENT_TIP_IS_NULL";
+        }
+
+        return L"MNI_UNKNOWN_ERROR_CODE";
+    }
+}
+
+namespace mni {
     auto ThemeInfo::Detect () -> ThemeInfo
     {
         return GetThemeInfo();
