@@ -36,7 +36,7 @@
 
 #if defined(ENABLE_FEATURE_IMMERSIVE_CONTEXT_MENU)
     #define FEATURE_IMMERSIVE_CONTEXT_MENU_ENABLED
-    #include "mni/ImmersiveContextMenu.hpp"
+    #include "..\..\deps\ImmersiveContextMenu\include\ImmersiveContextMenu.hpp"
     
     namespace icm = ImmersiveContextMenu;
 #endif
