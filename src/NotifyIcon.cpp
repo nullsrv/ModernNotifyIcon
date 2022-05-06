@@ -1053,12 +1053,12 @@ NotifyIcon::~NotifyIcon ()
     InternalDestroyNotifyIcon();
     InternalDestroyWindow();
 
-    if (mIcon)
+    if (mIcon && mResourceDestructionPolicy == ResourceDestructionPolicy::Auto)
     {
         DestroyIcon(mIcon);
     }
 
-    if (mMenu)
+    if (mMenu && mResourceDestructionPolicy == ResourceDestructionPolicy::Auto)
     {
         DestroyMenu(mMenu);
     }
