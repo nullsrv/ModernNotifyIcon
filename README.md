@@ -1,3 +1,7 @@
+# THIS IS DEVELOPMENT BRANCH IF YOU WANT TO USE THIS LIBRARY SWITCH TO APPROPRIATE BRANCH
+
+Current Stable branch: ```v2.0```
+
 # Modern Notify Icon
 
 ## Overview (click on image for hi-res version)
