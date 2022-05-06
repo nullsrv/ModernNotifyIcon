@@ -196,6 +196,12 @@ public:
         HINSTANCE         instance       = nullptr;
         std::wstring_view windowTitle    = L"NotifyIcon_InvisibleWindow";
         std::wstring_view className      = L"NotifyIcon_WndClass";
+        DWORD             exStyle        = WS_OVERLAPPEDWINDOW;
+        int               windowX        = CW_USEDEFAULT;
+        int               windowY        = CW_USEDEFAULT;
+        int               windowWidth    = CW_USEDEFAULT;
+        int               windowHeight   = CW_USEDEFAULT;
+        HWND              parent         = NULL;
 
         ResourceDestructionPolicy resourceDestructionPolicy = ResourceDestructionPolicy::Auto;
 
@@ -285,10 +291,11 @@ private:
     auto UpdateMenu  (HMENU menu)            -> HRESULT;
     auto UpdateTip   (std::wstring_view tip) -> HRESULT;
 
-    auto InternalCreateWindow        () -> HRESULT;
-    auto InternalCreateNotifyIcon    () -> HRESULT;
-    auto InternalDestroyWindow       () -> HRESULT;
-    auto InternalDestroyNotifyIcon   () -> HRESULT;
+    auto InternalCreateWindow        ()                 -> HRESULT;
+    auto InternalCreateWindow        (const Desc& desc) -> HRESULT;
+    auto InternalCreateNotifyIcon    ()                 -> HRESULT;
+    auto InternalDestroyWindow       ()                 -> HRESULT;
+    auto InternalDestroyNotifyIcon   ()                 -> HRESULT;
 
     auto InternalStartTimer   (UINT id, UINT interval) -> BOOL;
     auto InternalStopTimer    (UINT id)                -> BOOL;

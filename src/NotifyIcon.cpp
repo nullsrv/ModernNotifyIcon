@@ -805,7 +805,12 @@ auto NotifyIcon::UpdateTip (std::wstring_view tip) -> HRESULT
     return MNI_SUCCESS;
 }
 
-auto NotifyIcon::InternalCreateWindow  () -> HRESULT
+auto NotifyIcon::InternalCreateWindow () -> HRESULT
+{
+    return InternalCreateWindow(Desc{});
+}
+
+auto NotifyIcon::InternalCreateWindow (const Desc& desc) -> HRESULT
 {
     TRACE(
         L"InternalCreateWindow(), mWindowHandle=%lld, mInstance=%lld, mWindowTitle=%s, mClassName=%s",
@@ -837,7 +842,7 @@ auto NotifyIcon::InternalCreateWindow  () -> HRESULT
             .hInstance     = mInstance,
             .hIcon         = NULL,
             .hCursor       = NULL,
-            .hbrBackground = NULL,
+            .hbrBackground = reinterpret_cast<HBRUSH>(COLOR_WINDOW),
             .lpszMenuName  = nullptr,
             .lpszClassName = mClassName.c_str(),
             .hIconSm       = NULL
@@ -854,12 +859,12 @@ auto NotifyIcon::InternalCreateWindow  () -> HRESULT
         mWindowHandle = CreateWindowW(
             mClassName.c_str(),
             mWindowTitle.c_str(),
-            WS_OVERLAPPEDWINDOW,
-            CW_USEDEFAULT,
-            CW_USEDEFAULT,
-            CW_USEDEFAULT,
-            CW_USEDEFAULT,
-            nullptr,
+            desc.exStyle,
+            desc.windowX,
+            desc.windowY,
+            desc.windowWidth,
+            desc.windowHeight,
+            desc.parent,
             nullptr,
             mInstance,
             this        // <- pass this pointer in LPCREATESTRUCT
@@ -1103,7 +1108,7 @@ auto NotifyIcon::Init (const Desc& desc) -> HRESULT
     mImmersiveContextMenuStyle = desc.contextMenuStyle;
 #endif
 
-    return InternalCreateWindow();
+    return InternalCreateWindow(desc);
 }
 
 auto NotifyIcon::MainLoop () -> int
