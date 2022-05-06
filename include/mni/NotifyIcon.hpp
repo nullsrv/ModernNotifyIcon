@@ -298,10 +298,9 @@ private:
 
 public:
     NotifyIcon  () = default;
-    NotifyIcon  (const Desc desc);
     ~NotifyIcon ();
 
-    auto Init     () -> HRESULT;
+    auto Init     (const Desc& desc) -> HRESULT;
     auto MainLoop () -> int;
     auto Quit     () -> void;
     auto Handle   () -> HWND { return mWindowHandle; } // Use with caution!

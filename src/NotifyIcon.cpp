@@ -1022,32 +1022,6 @@ auto NotifyIcon::NotifyIconProc (HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPa
     return DefWindowProcW(hWnd, uMsg, wParam, lParam);
 }
 
-NotifyIcon::NotifyIcon (const Desc desc)
-    : mInstance                  (desc.instance)
-    , mIcon                      (desc.icon)
-    , mMenu                      (desc.menu)
-    , mUseStandardTip            (desc.useStandardTip)
-    , mTip                       (desc.tip)
-    , mWindowTitle               (desc.windowTitle)
-    , mClassName                 (desc.className)
-    , mUseGuid                   (desc.useGuid)
-    , mGuid                      (desc.guid)
-    , mIconCreated               (false)
-    , mIconVisible               (false)
-    , mTaskbarCreatedMsgId       (0)
-    , mIsDpiEvent                (false)
-    , mInternalDpi               (96)
-    , mInternalThemeInfo         (ThemeInfo::Detect())
-    , mResourceDestructionPolicy (desc.resourceDestructionPolicy)
-    , mDoubleKeySelectPrevention (false)
-
-#if defined(FEATURE_IMMERSIVE_CONTEXT_MENU_ENABLED)
-    , mUseImmersiveContextMenu   (desc.useImmersiveContextMenu)
-    , mImmersiveContextMenuStyle (desc.contextMenuStyle)
-#endif
-{
-}
-
 NotifyIcon::~NotifyIcon ()
 {
     InternalDestroyNotifyIcon();
@@ -1064,8 +1038,31 @@ NotifyIcon::~NotifyIcon ()
     }
 }
 
-auto NotifyIcon::Init () -> HRESULT
+auto NotifyIcon::Init (const Desc& desc) -> HRESULT
 {
+    mInstance                  = desc.instance;
+    mIcon                      = desc.icon;
+    mMenu                      = desc.menu;
+    mUseStandardTip            = desc.useStandardTip;
+    mTip                       = desc.tip;
+    mWindowTitle               = desc.windowTitle;
+    mClassName                 = desc.className;
+    mUseGuid                   = desc.useGuid;
+    mGuid                      = desc.guid;
+    mIconCreated               = false;
+    mIconVisible               = false;
+    mTaskbarCreatedMsgId       = 0;
+    mIsDpiEvent                = false;
+    mInternalDpi               = 96;
+    mInternalThemeInfo         = ThemeInfo::Detect();
+    mResourceDestructionPolicy = desc.resourceDestructionPolicy;
+    mDoubleKeySelectPrevention = false;
+
+#if defined(FEATURE_IMMERSIVE_CONTEXT_MENU_ENABLED)
+    mUseImmersiveContextMenu   = desc.useImmersiveContextMenu;
+    mImmersiveContextMenuStyle = desc.contextMenuStyle;
+#endif
+
     return InternalCreateWindow();
 }
 
