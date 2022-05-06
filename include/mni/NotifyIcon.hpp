@@ -38,6 +38,12 @@
     namespace icm = ImmersiveContextMenu;
 #endif
 
+// Version
+constexpr auto MNI_VERSION_MAJOR  = 2;
+constexpr auto MNI_VERSION_MINOR  = 0;
+constexpr auto MNI_VERSION        = UINT{(MNI_VERSION_MAJOR << 24) | (MNI_VERSION_MINOR << 16)};
+constexpr auto MNI_VERSION_STRING = L"2.0";
+
 #pragma region "Custom Codes"
 
 namespace {

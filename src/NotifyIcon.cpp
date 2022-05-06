@@ -64,6 +64,7 @@
 
     #define TRACE(fmt, ...) do{ wtrace(fmt, __VA_ARGS__); }while(0)
 #else
+    #undef TRACE
     #define TRACE(...) do{}while(0)
 #endif
 
@@ -709,7 +710,7 @@ auto NotifyIcon::TimerTimeout (UINT id) -> BOOL
 
 auto NotifyIcon::CustomMessage (UINT uMsg, WPARAM wParam, LPARAM lParam) -> BOOL
 {
-    TRACE(L"CustomMessage(uMsg=%s, wParam=%lld, lParam=%lld", uMsg, wParam, lParam);
+    TRACE(L"CustomMessage(uMsg=%d, wParam=%lld, lParam=%lld", uMsg, wParam, lParam);
     if (OnCustomMessage)
     {
         OnCustomMessage(uMsg, wParam, lParam);
@@ -720,7 +721,7 @@ auto NotifyIcon::CustomMessage (UINT uMsg, WPARAM wParam, LPARAM lParam) -> BOOL
 
 auto NotifyIcon::SystemMessage (UINT uMsg, WPARAM wParam, LPARAM lParam) -> BOOL
 {
-    TRACE(L"SystemMessage(uMsg=%s, wParam=%lld, lParam=%lld", uMsg, wParam, lParam);
+    TRACE(L"SystemMessage(uMsg=%d, wParam=%lld, lParam=%lld", uMsg, wParam, lParam);
     if (OnSystemMessage)
     {
         return OnSystemMessage(uMsg, wParam, lParam);
@@ -1107,6 +1108,23 @@ auto NotifyIcon::Init (const Desc& desc) -> HRESULT
     mUseImmersiveContextMenu   = desc.useImmersiveContextMenu;
     mImmersiveContextMenuStyle = desc.contextMenuStyle;
 #endif
+
+    TRACE(L"Init(), Version: %s", MNI_VERSION_STRING);
+    TRACE(L"desc.icon           = %lld", desc.icon);
+    TRACE(L"desc.menu           = %lld", desc.menu);
+    TRACE(L"desc.useStandardTip = %d"  , desc.useStandardTip);
+    TRACE(L"desc.tip            = %s"  , desc.tip.c_str());
+    TRACE(L"desc.useGuid        = %d"  , desc.useGuid);
+    //TRACE(L"desc.guid           = %lld", );
+    TRACE(L"desc.instance       = %lld", desc.instance);
+    TRACE(L"desc.windowTitle    = %s"  , desc.windowTitle.data());
+    TRACE(L"desc.className      = %s"  , desc.className.data());
+    TRACE(L"desc.exStyle        = %d"  , desc.exStyle);
+    TRACE(L"desc.windowX        = %d"  , desc.windowX);
+    TRACE(L"desc.windowY        = %d"  , desc.windowY);
+    TRACE(L"desc.windowWidth    = %d"  , desc.windowWidth);
+    TRACE(L"desc.windowHeight   = %d"  , desc.windowHeight);
+    TRACE(L"desc.parent         = %lld", desc.parent);
 
     return InternalCreateWindow(desc);
 }
