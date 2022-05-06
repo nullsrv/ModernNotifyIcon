@@ -5,7 +5,15 @@
 # Intermediate directories
 /obj
 
+# Debug files
+*.idb
+*.pdb
+
 # Visual Studio
 *.vcxproj.user
 *.aps
 .vs/
+
+# Artifacts
+*.sha256
+*.zip
