@@ -309,7 +309,11 @@ auto WINAPI wWinMain (
     desc.contextMenuStyle         = icmStyle;
     
     
-    auto notifyIcon = mni::NotifyIcon(desc);
+    auto notifyIcon = mni::NotifyIcon();
+    if (FAILED(notifyIcon.Init(desc)))
+    {
+        return 2;
+    }
 
     // After explorer.exe restart, we want to show icon again.
     notifyIcon.OnTaskbarCreated = [&](){
