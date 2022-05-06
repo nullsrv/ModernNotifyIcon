@@ -31,12 +31,9 @@
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 
-// If you comment this, remember to recompile library.
-#define ENABLE_FEATURE_IMMERSIVE_CONTEXT_MENU
-
 #if defined(ENABLE_FEATURE_IMMERSIVE_CONTEXT_MENU)
     #define FEATURE_IMMERSIVE_CONTEXT_MENU_ENABLED
-    #include "..\..\deps\ImmersiveContextMenu\include\ImmersiveContextMenu.hpp"
+    #include "../../deps/ImmersiveContextMenu/include/ImmersiveContextMenu.hpp"
     
     namespace icm = ImmersiveContextMenu;
 #endif

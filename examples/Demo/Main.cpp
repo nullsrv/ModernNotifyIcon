@@ -26,7 +26,7 @@
 #include <thread>
 #include <vector>
 
-#include <mni/NotifyIcon.hpp>
+#include <mni/ImmersiveNotifyIcon.hpp>
 
 #define MENU_HELLO        1000
 #define MENU_EMPTY        1001
