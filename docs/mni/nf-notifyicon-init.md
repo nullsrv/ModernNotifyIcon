@@ -10,6 +10,19 @@ You want to call this function after object creation.
 auto Init() -> HRESULT;
 ```
 
+```cpp
+auto Init(
+    [in] const Desc& desc
+) -> HRESULT;
+```
+
+## Parameters
+
+`[in] desc`</br>
+Type: **const [Desc](ns-notifyicon-desc.md)**
+
+Description used to initialize NotifyIcon object.
+
 ## Return value
 
 This function returns one of the following values.

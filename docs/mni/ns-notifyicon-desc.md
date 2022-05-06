@@ -18,6 +18,13 @@ struct Desc {
     HINSTANCE         instance       = nullptr;
     std::wstring_view windowTitle    = L"NotifyIcon_InvisibleWindow";
     std::wstring_view className      = L"NotifyIcon_WndClass";
+    DWORD             exStyle        = WS_OVERLAPPEDWINDOW;
+    int               windowX        = CW_USEDEFAULT;
+    int               windowY        = CW_USEDEFAULT;
+    int               windowWidth    = CW_USEDEFAULT;
+    int               windowHeight   = CW_USEDEFAULT;
+    HWND              parent         = NULL;
+
 
     ResourceDestructionPolicy resourceDestructionPolicy = ResourceDestructionPolicy::Auto;
 
@@ -75,6 +82,36 @@ Title of invisible window.
 Type: **std::wstring_view**
 
 Class name of invisible window.
+
+`exStyle`</br>
+Type: **DWORD**
+
+Style used when calling to CreateWindow.
+
+`windowX`</br>
+Type: **int**
+
+Position of invisible window.
+
+`windowY`</br>
+Type: **int**
+
+Position of invisible window.
+
+`windowWidth`</br>
+Type: **int**
+
+Width of invisible window.
+
+`windowHeight`</br>
+Type: **int**
+
+Height of invisible window.
+
+`parent`</br>
+Type: **HWND**
+
+Parent window handle used for internal window.
 
 `resourceDestructionPolicy`</br>
 Type: [ResourceDestructionPolicy](ne-notifyicon-resourcedestructionpolicy.md)

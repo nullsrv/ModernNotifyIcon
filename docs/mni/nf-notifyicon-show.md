@@ -28,4 +28,4 @@ MNI_FAILED_TO_CREATE_WINDOW        | Error   | Call to CreateWindow failed
 ## Remarks
 
 If [Show](nf-notifyicon-show.md) is called before [Init](nf-notifyicon-init.md),
-this function will perform required initialization.
+this function will perform required initialization and will use default **Desc** values.

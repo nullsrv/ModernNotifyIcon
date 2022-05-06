@@ -8,15 +8,6 @@ Constructor of NotifyIcon class.
 NotifyIcon() = default;
 ```
 
-```cpp
-NotifyIcon(
-    [in] const Desc desc
-);
-```
-
 ## Parameters
-
-`[in] desc`</br>
-Type: **const [Desc](ns-notifyicon-desc.md)**
 
 Description used to construct NotifyIcon object.

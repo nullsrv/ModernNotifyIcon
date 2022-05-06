@@ -70,3 +70,4 @@ Represents icon in notification area.
 [mni::BalloonIconType](mni/ne-balloonicontype.md)</br>Balloon icon type
 [icm::Style](mni/ne-icm-style.md)</br>Context menu style
 [mni::ThemeInfo](mni/nc-themeinfo.md)</br>Theme info
+[mni::MniErrorCodeToString](mni/nf-mnierrorcodetostring.md)</br>MniErrorCodeToString 
