@@ -25,7 +25,7 @@ You can use either pre-build static library or build library yourself.
 
 ### Requirements
 
-- C++ compiler (std:c++17 or later) [only MSVC, other compiler not tested]
+- C++ compiler (std:c++17 or later) [only MSVC, other compilers not tested]
 
 ### To use pre-build library
 
