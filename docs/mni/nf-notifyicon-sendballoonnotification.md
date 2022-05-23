@@ -27,7 +27,7 @@ Type: **std::wstring_view**
 Notification text.
 
 `[in] iconType`</br>
-Type: [BalloonIconType](ne-balloonicontype.md.md)
+Type: [BalloonIconType](ne-balloonicontype.md)
 
 Balloon icon type.
 

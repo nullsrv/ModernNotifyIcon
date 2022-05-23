@@ -13,13 +13,13 @@ Represents icon in notification area.
 
 |   |
 | - |
-[NotifyIcon::Desc](mni/ns-notifyicon-desc.md.md)</br>Description used in constructor
+[NotifyIcon::Desc](mni/ns-notifyicon-desc.md)</br>Description used in constructor
 
 ## Enumerations
 
 |   |
 | - |
-[NotifyIcon::ResourceDestructionPolicy](mni/ne-notifyicon-resourcedestructionpolicy.md.md.md)</br>Resource destruction policy
+[NotifyIcon::ResourceDestructionPolicy](mni/ne-notifyicon-resourcedestructionpolicy.md)</br>Resource destruction policy
 
 ## Callbacks
 
@@ -49,7 +49,7 @@ Represents icon in notification area.
 [NotifyIcon::UseStandardTip](mni/nf-notifyicon-usestandardtip.md)</br>Use standard tip
 [NotifyIcon::UseRichPopupTip](mni/nf-notifyicon-userichpopuptip.md)</br>Use rich popup tip
 [NotifyIcon::IsStandardTip](mni/nf-notifyicon-isstandardtip.md)</br>Check if standard tip is used
-[NotifyIcon::IsRichPopupTip](mni/nf-notifyicon-isrichpopuptip.md.md)</br>Check if rich popup tip is used
+[NotifyIcon::IsRichPopupTip](mni/nf-notifyicon-isrichpopuptip.md)</br>Check if rich popup tip is used
 [NotifyIcon::SendBalloonNotification](mni/nf-notifyicon-sendballoonnotification.md)</br>Send balloon notification
 [NotifyIcon::RemoveBalloonNotification](mni/nf-notifyicon-removeballoonnotification.md)</br>Remove balloon notification
 [NotifyIcon::StartTimer](mni/nf-notifyicon-starttimer.md)</br>Start timer
