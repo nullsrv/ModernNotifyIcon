@@ -7,7 +7,7 @@
 
 # Debug files
 *.idb
-*.pdb
+#*.pdb
 
 # Visual Studio
 *.vcxproj.user
